@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>项目列表页</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body{
+            background: linear-gradient(to right, white,white);
+        }
+        th{ text-align: center}
+        td{ text-align: center}
+    </style>
+</head>
+<body>
+
+{% include "menu.html" %}
+
+{#<a href="/logout/"><h1>注销</h1></a>#}
+
+<table class="table table-bordered table-condensed table-striped" style="width: 80%;margin-left: 10%">
+    <thead style="background-color: #63c6ea;color: white">
+        <tr>
+            <th>项目标题</th>
+            <th>创建者</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in projects %}
+            <tr>
+                <td>
+                    {{ i.name }}
+                </td>
+                <td>
+                    {{ i.creater }}
+                </td>
+                <td>
+                    <a href="/mock_list/{{ i.id }}/">进入</a>
+                    <a href="/del_project/{{ i.id }}/">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
